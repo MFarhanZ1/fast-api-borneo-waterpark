@@ -1,9 +1,9 @@
 import os
 import sys
 
-VENV_PATH = "/home/wyscrtdd/virtualenv/api-borneo-waterpark.blk-pariwisata.web.id/3.13/bin/"
+VENV_PATH = "/home/wyscrtdd/virtualenv/repositories/fast-api-borneo-waterpark/3.13/bin/"
 
-COMMAND = VENV_PATH + "gunicorn -w 2 -k uvicorn.workers.UvicornWorker main:app --bind 0.0.0.0:8796"
+COMMAND = VENV_PATH + "gunicorn -w 2 -k uvicorn.workers.UvicornWorker main:app --bind 0.0.0.0:9196"
 
 try:
     os.execvp("bash", ["bash", "-c", COMMAND])
