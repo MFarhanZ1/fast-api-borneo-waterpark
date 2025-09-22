@@ -5,6 +5,12 @@ from typing import List
 import crud, models, schemas
 from database import SessionLocal, engine, get_db
 
+from fastapi.middleware.cors import CORSMiddleware
+
+origins = [
+    "*",
+]
+
 # Membuat tabel di database jika belum ada
 models.Base.metadata.create_all(bind=engine)
 
@@ -12,6 +18,14 @@ app = FastAPI(
     title="Borneo Waterpark API",
     description="API untuk mengelola data untuk Borneo Waterpark.",
     version="1.0.0"
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # ===================================================================
